@@ -17,12 +17,32 @@ char Min<char>(char a, char b) {
 
 }
 
-int main() {
+int recursivePaying(int n) {
 
-	printf("int型%d\n", Min<int>(100, 99));
-	printf("float型%f\n", Min<float>(10.0f, 9.9f));
-	printf("double型%lf\n", Min<double>(10.0, 9.9));
-	printf("char型%c\n", Min<char>('A', 'B'));
+
+	if (n == 1) {
+		return 100;
+	}
+	else {
+		return 2 * recursivePaying(n - 1) - 50;
+	}
+
+
+}
+
+int main() {
+	int a = 1072;
+	int b = 0;
+	int n = 1;
+	while (a > b)
+	{
+		b = recursivePaying(n);
+		printf("再起給料%d::", b);
+		printf("通常給料%d::", a);
+		printf("%d時間\n", n);
+		a += 1072;
+		n++;
+	}
 
 	return 0;
 }
