@@ -128,7 +128,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CloseRangeAttacker.cpp" />
+    <ClCompile Include="LongRangeAttacker.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="yuusha.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CloseRangeAttacker.h" />
+    <ClInclude Include="LongRangeAttacker.h" />
+    <ClInclude Include="yuusha.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
