@@ -1,8 +1,11 @@
 #include "stdio.h"
+#include "Math.h"
 int main() {
 
-	printf("arakaki_sora\n");
-	printf("アラカキソラ");
+	int num = 10;
+
+	Math<int, int>num1(10, 20);
+		
 
 
 }
