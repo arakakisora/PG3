@@ -1,8 +1,12 @@
 #include "stdio.h"
+#include "Enemy.h"
 int main() {
 
-	printf("arakaki_sora\n");
-	printf("アラカキソラ");
+	Enemy *enemy = new Enemy();
+
+	enemy->Update();
+
+	delete enemy;
 
 
 }
