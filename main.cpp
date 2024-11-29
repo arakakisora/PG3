@@ -1,28 +1,42 @@
-#include "stdio.h"
-template<typename T>
-T Min(T a, T b) {
-
-	if (a < b) {
-		return a;
-	}
-	else {
-		return b;
-	}
-}
-template<>
-char Min<char>(char a, char b) {
+#include <iostream>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include <fstream>  
+#include <cstdio>   
 
 
-	return printf("数字以外は代入できません");
-
-}
 
 int main() {
 
-	printf("int型%d\n", Min<int>(100, 99));
-	printf("float型%f\n", Min<float>(10.0f, 9.9f));
-	printf("double型%lf\n", Min<double>(10.0, 9.9));
-	printf("char型%c\n", Min<char>('A', 'B'));
+	// メールアドレスを格納する
+	std::vector<std::string> emails;
+
+	// ファイルからデータを読み込む
+	std::ifstream inputFile("PG3_2024_03_02.txt"); // ファイル名を指定
+	if (!inputFile) {
+		std::cerr << "ファイルを開けませんでした。" << std::endl;
+		return 1;
+	}
+
+	// ファイルから1行ずつ読み込み
+	std::string email;
+	while (std::getline(inputFile, email, ',')) { // カンマ区切りで読み込み
+		
+		email.erase(std::remove(email.begin(), email.end(), '['), email.end());
+		email.erase(std::remove(email.begin(), email.end(), ']'), email.end());
+		emails.push_back(email);
+	}
+	inputFile.close();
+
+	// ソート処理（昇順）
+	std::sort(emails.begin(), emails.end());
+
+	for (const auto& e : emails) {
+		
+		// メールアドレスを出力
+		printf("%s\n", e.c_str());
+	}
 
 	return 0;
 }
